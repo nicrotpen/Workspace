@@ -38,8 +38,6 @@ contrasenya = "hOlA"
 contrasenya = cambiaTexto2(contrasenya)
 print("La contraseña es: ",contrasenya)
 
-'''
-'''
 #### Prueba 3
 contrasenya = "Oculto"
 contrasenya = cambiaTexto3(contrasenya)
@@ -74,9 +72,8 @@ contrasenya = cambiaTexto3(contrasenya)
 contrasenya = cambiaTexto3(contrasenya)
 print("La contraseña es: ",contrasenya)
 
-'''
-
 #### Prueba 8
 contrasenya = "hard"
 contrasenya = cambiaTexto3(cambiaTexto2(cambiaTexto1(contrasenya)))
 print("La contraseña es: ",contrasenya)
+'''
