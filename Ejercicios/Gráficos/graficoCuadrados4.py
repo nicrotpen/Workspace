@@ -31,4 +31,4 @@ plt.show()
 
 # Si queremos guardar las gráficas automáticamente:
 #plt.savefig('graficoCuadrados.png', bbox_inches='tight')
-
+fig.savefig('graficoCuadrados.png')
