@@ -4,33 +4,34 @@ from datetime import datetime
 from matplotlib import pyplot as plt
 
 nombreFichero = 'datos/sitka_weather_2018_simple.csv'
-
+nombre_estacion=''
 with open(nombreFichero) as f:
     lector = csv.reader(f)
     fila_cabecera = next(lector)
-
-    # Obten las fechas y las temperaturas mininimas del fichero.
-    fechas, maximas, mininimas = [], [], []
+    leido=0
+    # Obten las fechas y las temperaturas precipitacions del fichero.
+    fechas, precipitaciones = [], []
     for fila in lector:
         fecha_actual = datetime.strptime(fila[2], '%Y-%m-%d')
         fechas.append(fecha_actual)
-        min = int(fila[6])
-        mininimas.append(min)
-        max= int(fila[5])
-        maximas.append(max)
+        precipitacion = float(fila[3])
+        precipitaciones.append(precipitacion)
+        if not(leido):
+            nombre_estacion=fila[1]
+            leido=1
 
-
-# Dibuja las temperaturas mininimas.
+# Dibuja las temperaturas precipitacions.
 plt.style.use('seaborn-v0_8')
 fig, ax = plt.subplots()
-ax.plot(fechas, mininimas, c='cian')
-ax.plot(fechas, maximas, c='red')
+ax.plot(fechas, precipitaciones, c='red')
+
 
 # Formatea el gráfico.
-plt.title("Temperaturas diarias mínimas - 2018", fontsize=24)
-plt.xlabel('Fechas', fontsize=16)
+plt.title(f"Precipitaciones diarias \n - 2018 en {nombre_estacion}", fontsize=24)
+plt.xlabel('', fontsize=16)
 fig.autofmt_xdate()
 plt.ylabel("Temperatura (ºF)", fontsize=16)
 plt.tick_params(axis='both', which='major', labelsize=16)
 
-plt.fill_between(fechas, maximas, min, facecolor= 'blue', alpha='red')
+plt.show()
+
